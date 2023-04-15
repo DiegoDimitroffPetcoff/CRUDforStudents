@@ -19,7 +19,7 @@ Read = async (req, res) => {
 
 ReadById = async (req, res) => {
   let userById = await Service.ReadById(req.params.id);
-  console.log(userById);
+
   try {
     if (userById.length === 0) {
       res.status(404).send("User not found");

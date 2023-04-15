@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express()
 
-//TODO: AGREGAR LAS VARIABLES DE ENTORNO Y CONFIG.
+
 //TODO: AGREGAR PARA QUE FUNCIONE CON TODOS LOS NUCLEOS DE LA PC
 //----------------------------MIDDLEWARE-----------------------------------------
 app.use(express.json());
