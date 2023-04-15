@@ -7,6 +7,12 @@ ApiRoutes
 
 .get("/", CrudController.Read)
 .get("/:id", CrudController.ReadById)
-.patch("/", CrudController.Update)
-.delete("/", CrudController.Delete)
+.patch("/:id", CrudController.Update)
+.delete("/:id", CrudController.Delete)
+
+//  404 Rute
+ApiRoutes.use((req, res) => {
+    res.status(404).send("404 - Route not found");
+  });
+
 module.exports = ApiRoutes

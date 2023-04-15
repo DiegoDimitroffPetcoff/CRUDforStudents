@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const userSchema = require("../MODELS/users");
 const counterId = require("../UTILS/counterID");
 
-//TODO:BUSCAR LA MANERA DE AGREGAR UN ID EN MONGO PARA LUEGO AGREGAR EL BUSCADOR BY ID
+
 Create = async (user) => {
   //counterId() es una funcion para generar un numero que va incrementando en uno
   let id = await counterId();
@@ -21,9 +21,19 @@ ReadById = async (id) => {
   return allUsers;
 };
 
-Update = () => {};
+Update = async(id, updates) => {
+  
+  let updatedUser = await userSchema.findOneAndUpdate(
+    {id: `${id}` },
+    updates,{new:true}
+    )
+  return updatedUser;
 
-Delete = () => {};
+};
+
+Delete = async(id) => {
+let deletedUser = await userSchema.findOneAndDelete({ id });
+return deletedUser;};
 
 module.exports = {
   Create,
